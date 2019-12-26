@@ -54,6 +54,9 @@ $(document).ready(function() {
                 dataType   : "json",
                 success    : function(data) {
                     successDisplayHtml(data);
+                },
+                error: function(xhr, errorMessage, thrownError) {
+                    alert(xhr.status + ' ' + thrownError)
                 }
             });
         } 
@@ -71,6 +74,9 @@ $(document).ready(function() {
                 processData   : false,
                 success    : function(data){
                     successDisplayHtml(data);
+                },
+                error: function(xhr, errorMessage, thrownError) {
+                    alert(xhr.status + ' ' + thrownError)
                 }
             });
         }
