@@ -22,6 +22,8 @@ $(document).ready(function() {
         // Either file upload or form text can't be blank
         if ($('#emailFile').val() === "" && $('#emailMessageInput').val() === "" ) {
             return false;
+        } else if ($('#emailFile').val().length > 0 && $('#emailMessageInput').val().length > 0 ) {
+            return false;
         }
         return true;
     }
@@ -37,7 +39,7 @@ $(document).ready(function() {
         var $form = $('#email-form');
         if (validateForm() === false) {
             // Usually would show modal but for this excercise alert will do
-            alert("You must either select a file to upload or paste in email text");
+            alert("Either select a file to upload or paste in email text. You can only do one at a time.");
             // just to be safe reset form
             clearForm(true);
             return;
