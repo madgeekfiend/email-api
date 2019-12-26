@@ -18,6 +18,14 @@ $(document).ready(function() {
         $('#email-parse-output').html(resultHtml);
     }
 
+    function validateForm() {
+        // Either file upload or form text can't be blank
+        if ($('#emailFile').val() === "" && $('#emailMessageInput').val() === "" ) {
+            return false;
+        }
+        return true;
+    }
+
     // Bind to reset button and clear reset the form
     $('#reset-form').bind("click", function(event) {
         event.preventDefault();
@@ -27,6 +35,13 @@ $(document).ready(function() {
     $('form#email-form').on('submit', function(event) {
         event.preventDefault();
         var $form = $('#email-form');
+        if (validateForm() === false) {
+            // Usually would show modal but for this excercise alert will do
+            alert("You must either select a file to upload or paste in email text");
+            // just to be safe reset form
+            clearForm(true);
+            return;
+        }
 
         if ($form[0].file.files.length == 0) {
             $.ajax({
@@ -44,7 +59,7 @@ $(document).ready(function() {
         {
             // Assume a file is attached and upload the file
             var formData = new FormData();
-            formData.append('file', $('input[type=file]')[0].files[0]);
+            formData.append('emailFile', $('input[type=file]')[0].files[0]);
             formData.append('emailRawText', '');
             $.ajax({
                 url : "http://localhost:5000/api/v1/email/parse",

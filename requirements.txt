@@ -1,6 +1,6 @@
 astroid==2.3.3
+attrs==19.3.0
 Click==7.0
-coverage==5.0
 Flask==1.1.1
 Flask-Cors==3.0.8
 ipaddress==1.0.23
@@ -12,12 +12,18 @@ lxml==4.4.2
 mail-parser==3.9.3
 MarkupSafe==1.1.1
 mccabe==0.6.1
-nose2==0.9.1
+more-itertools==8.0.2
+packaging==19.2
 pip-autoremove==0.9.1
+pluggy==0.13.1
+py==1.8.0
 pylint==2.4.4
+pyparsing==2.4.6
+pytest==5.3.2
 python-docx==0.8.10
 rope==0.14.0
 simplejson==3.17.0
 six==1.12.0
+wcwidth==0.1.7
 Werkzeug==0.16.0
 wrapt==1.11.2
