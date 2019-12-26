@@ -40,11 +40,16 @@ class MailParserEmailParser(EmailParser):
 
     def parse_from_string(self, message):
         self.mailparser = mailparser.parse_from_string(message)
-        self.to = self.mailparser.to
-        self.from_ = self.mailparser.from_
-        self.date = self.mailparser.date
-        self.subject = self.mailparser.subject
-        self.message_id = self.mailparser.message_id
+        if self.mailparser.to:
+            self.to = self.mailparser.to
+        if self.mailparser.from_:
+            self.from_ = self.mailparser.from_
+        if self.mailparser.date_raw:
+            self.date = self.mailparser.date_raw.replace('[','').replace(']','').replace('"','')
+        if self.mailparser.subject:
+            self.subject = self.mailparser.subject
+        if self.mailparser.message_id:
+            self.message_id = self.mailparser.message_id
     
 class EmailParseStrategy(object):
 
@@ -61,4 +66,3 @@ class EmailParseStrategy(object):
 
     def parse_email_from_string(self, message):
         return self.mailparser.parse_from_string(message)
-

@@ -1,4 +1,4 @@
-from emai_api import app
+from email_api import app
 import os
 
 if __name__ == "__main__":
