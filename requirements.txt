@@ -6,7 +6,7 @@ Flask-Cors==3.0.8
 ipaddress==1.0.23
 isort==4.3.21
 itsdangerous==1.1.0
-Jinja2==2.10.3
+Jinja2==2.11.3
 lazy-object-proxy==1.4.3
 lxml==4.4.2
 mail-parser==3.9.3
